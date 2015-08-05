@@ -188,7 +188,10 @@ class NoteViewController: UIViewController,UITextFieldDelegate,TagButtonDelegate
                     if(self.selectedNote != nil){
                         CoreDataManager.sharedInstance.modifyNote(self.selectedNote!, title : self.titleField.text, noteDescripton: self.noteDescription.text, date: self.date!, color: self.selectedColor!)
                     }else{
-                        CoreDataManager.sharedInstance.addNote(self.titleField.text, noteDescripton: self.noteDescription.text, date: self.date!, color: self.selectedColor!)
+                        if(!self.titleField.text.isEmpty){
+                            CoreDataManager.sharedInstance.addNote(self.titleField.text, noteDescripton: self.noteDescription.text, date: self.date!, color: self.selectedColor!)
+                        }
+                        
                     }
                     
                 }else{

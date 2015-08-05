@@ -15,13 +15,6 @@ class ViewController: UIViewController,CalendarDelegate {
         return CalendarView(parent: self)
     }()
     
-    private lazy var reminderButton : UIButton = {
-        let button: UIButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as! UIButton
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
-        button.tintColor = UIColor.brownColor()
-        button.addTarget(self, action: Selector("addReminder"), forControlEvents: UIControlEvents.TouchUpInside)
-        return button
-        }()
     private lazy var reminderBarButton : UIBarButtonItem = {
         let addButton : UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addReminder")
         addButton.enabled = false
@@ -53,13 +46,6 @@ class ViewController: UIViewController,CalendarDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    /*private func addReminderButton(){
-        self.view.addSubview(self.reminderButton)
-        self.view.addConstraint(NSLayoutConstraint(item: self.reminderButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 70))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.reminderButton, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 20))
-        self.reminderButton.enabled = false
-        
-    }*/
     
     private func addReminderButton(){
         self.navigationItem.rightBarButtonItem = self.reminderBarButton
